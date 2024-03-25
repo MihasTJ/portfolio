@@ -25,7 +25,7 @@ Feel free to customize this according to your preferences or specific details yo
 </details>
 
 ## Live demo
-<a href="https://raw.githack.com/MihasTJ/portfolio/master/index.html">https://raw.githack.com/MihasTJ/portfolio/master/index.html"</a>
+<a href="https://raw.githack.com/MihasTJ/portfolio/master/index.html">https://raw.githack.com/MihasTJ/portfolio/master/index.html</a>
 
 ## Technologies
 <ul>
