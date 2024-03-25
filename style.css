@@ -4,12 +4,21 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior:smooth;
+}
 :root{
     --primary:#FF7400;
     --secondary:#a7a7a7;
 
     --background:#080808;   
+    --background-sec:#262626;
     --white:#fff;
+
+    --btn-radius:6px;
+    --btn-menu-h:3px;
+    --burger-rotate:43deg;
+
 }
 body{
     background-color:var(--background);
@@ -31,31 +40,105 @@ body{
 .flex.wrap{
     flex-wrap: wrap;
 }
+.os-grid{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+    color:var(--white)
+}
+/* BUTTONS */
+.btn{
+    display: block;
+    margin:50px 0;
+    width: fit-content;
+    padding:14px 50px;
+    color:var(--white);
+    border-radius: var(--btn-radius);
+    transition: background 0.2s ease-in;
+    border:1px solid var(--primary);
+    cursor: pointer;
+}
+
+.btn-empty:hover{
+    background: var(--primary);
+}
+.btn-filled{
+    background: var(--primary);
+}
+.btn-filled:hover{
+    background: var(--background);
+}
+
+.burgerbtn{
+    height: 20px;
+    width: 26px;
+    position: relative;
+    cursor: pointer;
+}
+.burgerbtn span{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--white);
+    transition:all 0.2s ease-out;
+    z-index: 2;
+}
+.burgerbtn span:nth-child(1){
+    transform-origin: top left;
+    top:0;
+}
+.burgerbtn span:nth-child(2){
+    top:calc(10px - 1.5px);
+}
+.burgerbtn span:nth-child(3){
+    transform-origin: left bottom;
+    bottom:0;
+}
+
+.burgerbtn.active-menu span:nth-child(1){
+    rotate:var(--burger-rotate);
+}
+.burgerbtn.active-menu span:nth-child(2){
+    opacity: 0;
+}
+.burgerbtn.active-menu span:nth-child(3){
+    rotate:calc(-1 * var(--burger-rotate));
+}
+
+/* -------HEADER SECTION ------- */
 header{
     width: 100%;
     height: 100vh;
-    background-image:url(images/background.jpg);
-    background-size: cover;
+    background-image:url(images/Bez\ nazwy-1.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
     background-position: center;
 }
-header .container{
+.container{
     padding:10px 5%;
 }
 header .logo{
     width: 180px;
 }
-nav ul li{
+/* ---navigation------- */
+#navmenu{
+    transition:right 0.3s ease-in-out;
+}
+#navmenu li{
     display: inline-block;
     list-style: none;
     margin:10px 20px;
 }
-nav ul li a{
+#navmenu li a{
     color:var(--white);
     text-decoration: none;
     font-size:1em;
     position: relative;
 }
-nav ul li a::after{
+#navmenu li a::after{
     content: '';
     width: 0;
     height: 3px;
@@ -65,7 +148,7 @@ nav ul li a::after{
     bottom:-6px;
     transition: 0.2s ease-in;
 }
-nav ul li a:hover::after{
+#navmenu li a:hover::after{
     width: 100%;
 }
 .header-text{
@@ -73,7 +156,7 @@ nav ul li a:hover::after{
     font-size:2em;
 }
 .header-text h1{
-    font-size: 3em;
+    font-size: 2em;
     margin-top:20px;
 }
 .header-text h1 span{
@@ -90,12 +173,39 @@ nav ul li a:hover::after{
 }
 .about-col-1 img{
     width: 100%;
-    border-radius: 20px;
+    border-radius: 50%;
+}
+.about-col-1 .img-content{
+    position: relative;
+    width: 80%;
+    float: right;
+}
+.about-col-1 .circle-spin{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 105%;
+    height: 105%;
+    border-radius: 50%;
+    border-top: .2rem solid var(--background);
+    border-bottom: .2rem solid var(--background);
+    border-left: .2rem solid var(--primary);
+    border-right: .2rem solid var(--primary);
+    animation: spinning 20s infinite linear ;
+}
+@keyframes spinning {
+    from{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
 }
 .about-col-2 {
     flex-basis: 60%;
 }
-.about-col-2 h2.subtitle{
+h2.subtitle{
     font-size: 2.5em;
     font-weight: 600;
     color:var(--white)
@@ -136,4 +246,115 @@ nav ul li a:hover::after{
 }
 .tab-contents.active-tab{
     display: block;
+}
+
+/* ------------ CONTACT ------------ */
+.contact-left{
+    flex-basis: 35%;
+}
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-left p{
+    margin-top:20px;
+}
+.contact-left p img{
+    width: 25px;
+    height: 25px;
+}
+.contact-left img{
+    width: 30px;
+    height: 30px;
+    stroke:var(--primary);
+    transition: 0.2s ease-in-out;
+    margin-right: 10px;
+}
+.contact-left .social-icons img:hover{
+    filter: invert(40%) sepia(87%) saturate(4098%) hue-rotate(2deg) brightness(106%) contrast(104%);
+    transform: translateY(-5px);
+}
+.contact-left .social-icons{
+    margin-top:20px;
+}
+
+.contact-right form{
+    width: 100%;
+}
+form input, form textarea{
+    width: 100%;
+    border:0;
+    outline: none;
+    background: var(--background-sec);
+    padding:15px;
+    margin:15px 0;
+    color:var(--white);
+    font-size:1em;
+    border-radius:6px;
+    resize: none;
+}
+form .btn-filled{
+    margin-top:15px;
+}
+
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding:20px 0;
+    background: var(--background-sec);
+    font-weight: 300;
+    margin-top:20px;
+    font-size: 0.7em;
+}
+
+.burgerbtn{
+    display: none
+}
+/* --------------- RWD ---------------- */
+@media only screen and (max-width:680px) {
+    header{
+        background-image: url(images/phone-background.jpg);
+    }
+    .header-text{
+        margin-top: 130%;
+        font-size:1em;
+    }
+    nav .burgerbtn{
+        display: block;
+    }
+    #navmenu{
+        background-color: var(--primary);
+        position: fixed;
+        top:0;
+        right:-200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 40px;
+        z-index: 1;
+    }
+    #navmenu li{
+        display: block;
+        margin:25px;
+    }
+    h2.subtitle{
+        font-size:2em;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom:30px;
+    }
+    .about-col-2{
+        font-size:0.8em;
+    }
+
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size:0.6em;
+    }
 }

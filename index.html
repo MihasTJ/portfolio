@@ -11,17 +11,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="container">
             <nav class="flex ai-c jc-sb wrap">
                 <img src="images/logo.png" class="logo" alt="logo image">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul id="navmenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="burgerbtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
             <div class="header-text">
                 <p>Website Developer</p>
@@ -31,10 +36,13 @@
     </header>
     <!---------- ABOUT SECTION ---------->
     <div id="about">
-        <div class="container">
+        <div class="container os-grid">
             <div class="row flex jc-sb wrap">
                 <div class="about-col-1">
-                    <img src="images/user.jpg" alt="user-image">
+                    <div class="img-content">
+                        <div class="circle-spin"></div>
+                        <img src="images/user.jpg" alt="user-image"></img>
+                    </div>
                 </div>
                 <div class="about-col-2">
                     <h2 class="subtitle">About me</h2>
@@ -69,6 +77,40 @@
             </div>
         </div>
     </div>
+
+<!------------ CONTACT ------------>
+
+<div id="contact">
+    <div class="container os-grid">
+        <div class="row flex jc-sb wrap">
+            <div class="contact-left">
+                <h2 class="subtitle">Contact Me</h2>
+                <p><a class="flex ai-c" href="mailto:michal.janiol00@gmail.com"><img src="icons/send.svg" alt="email-send">michal.janiol00@gmail.com</a></p>
+                <p><a class="flex ai-c" href="tel:+48880043966"><img src="icons/phone.svg" alt="phone">+48 880 043 966</a></p>
+                <div class="social-icons">
+                    <a href="https://github.com/MihasTJ"><img src="icons/github.svg" alt="github"></a>
+                    <a href="https://www.linkedin.com/in/michal-janiol/"><img src="icons/linkedin.svg" alt="linkedin"></a>
+                    <a href="https://www.instagram.com/epicgh0st/"><img src="icons/instagram.svg" alt="instagram"></a>
+                    <a href="https://www.facebook.com/michal.janiol/"><img src="icons/facebook.svg" alt="facebook"></a>
+                </div>
+                <a href="files/CV-ang.pdf" download class="btn btn-filled">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn-filled">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright © 2024 Michał Janioł All Right Reserved.</p>
+    </div>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>
