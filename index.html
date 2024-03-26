@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Michał Janioł's Personal Portfolio. Website developer based in Poland. Graduate of Computer Science and Econometrics. Skilled in UI/UX, web development, and app development. Contact for inquiries.">
+    <meta name="keywords" content="Michał Janioł, portfolio, web developer, Poland, UI/UX, web development, app development, contact">
+    <meta name="author" content="Michał Janioł">
+    <title>Michał Janioł - Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- font -->
@@ -31,6 +34,12 @@
             <div class="header-text">
                 <p>Website Developer</p>
                 <h1>Hi, I'm <span>Michał</span></br> Janioł from Poland</h1>
+                <p>I am fascinate about new technologies and the development of web applications, which is why I associate my professional future with the IT industry. During my free time I play sports and read books.</p>
+                <div class="header-buttons">
+                    <a href="https://raw.githack.com/MihasTJ/cv/master/index.html" target="_blank" download class="btn btn-empty">CV ONLINE</a>
+                    <a href="files/CV-ang.pdf" download class="btn btn-filled">Download CV</a>
+                </div>
+                
             </div>
         </div>
     </header>
@@ -100,8 +109,9 @@
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn-filled">Submit</button>
+                    <button id="form-send" type="submit" class="btn btn-filled">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>

@@ -59,6 +59,8 @@ a{
     transition: background 0.2s ease-in;
     border:1px solid var(--primary);
     cursor: pointer;
+    font-size:1rem;
+    text-align: center;
 }
 
 .btn-empty:hover{
@@ -68,7 +70,7 @@ a{
     background: var(--primary);
 }
 .btn-filled:hover{
-    background: var(--background);
+    background: transparent;
 }
 
 .burgerbtn{
@@ -107,15 +109,19 @@ a{
 .burgerbtn.active-menu span:nth-child(3){
     rotate:calc(-1 * var(--burger-rotate));
 }
+.burgerbtn{
+    display: none;
+}
 
 /* -------HEADER SECTION ------- */
 header{
     width: 100%;
     height: 100vh;
-    background-image:url(images/Bez\ nazwy-1.jpg);
+    background-image:url(images/background.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
 }
 .container{
     padding:10px 5%;
@@ -152,17 +158,26 @@ header .logo{
     width: 100%;
 }
 .header-text{
-    margin-top:10%;
-    font-size:2em;
+    margin-top:15%;
+    font-size:1em;
+    width: 40%;
 }
 .header-text h1{
-    font-size: 2em;
-    margin-top:20px;
+    font-size: 5rem;
+    line-height: 90px;
 }
 .header-text h1 span{
     color:var(--primary)
 }
-
+.header-buttons{
+    display: flex;
+}
+.header-buttons > div:not(:last-child), .header-buttons > a:not(:last-child){
+    margin-right:20px;
+}
+.header-buttons > a{
+    margin:20px 0;
+}
 /*---------- ABOUT SECTION ----------> */
 #about{
     padding:80px 0;
@@ -171,25 +186,27 @@ header .logo{
 .about-col-1{
     flex-basis: 35%;
 }
-.about-col-1 img{
-    width: 100%;
-    border-radius: 50%;
-}
 .about-col-1 .img-content{
     position: relative;
-    width: 80%;
+    width: 100%;
     float: right;
+    overflow: hidden;
+}
+.about-col-1 img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
 .about-col-1 .circle-spin{
     position: absolute;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    width: 105%;
-    height: 105%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    border-top: .2rem solid var(--background);
-    border-bottom: .2rem solid var(--background);
+    border-top: .2rem solid transparent;
+    border-bottom: .2rem solid transparent;
     border-left: .2rem solid var(--primary);
     border-right: .2rem solid var(--primary);
     animation: spinning 20s infinite linear ;
@@ -206,7 +223,7 @@ header .logo{
     flex-basis: 60%;
 }
 h2.subtitle{
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: 600;
     color:var(--white)
 }
@@ -219,6 +236,9 @@ h2.subtitle{
     font-weight: 500;
     cursor: pointer;
     position: relative;
+}
+.tab-links:last-child{
+    margin-right: 0px;
 }
 .tab-links::after{
     content: '';
@@ -265,8 +285,7 @@ h2.subtitle{
 .contact-left img{
     width: 30px;
     height: 30px;
-    stroke:var(--primary);
-    transition: 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     margin-right: 10px;
 }
 .contact-left .social-icons img:hover{
@@ -295,7 +314,6 @@ form input, form textarea{
 form .btn-filled{
     margin-top:15px;
 }
-
 .copyright{
     width: 100%;
     text-align: center;
@@ -306,17 +324,36 @@ form .btn-filled{
     font-size: 0.7em;
 }
 
-.burgerbtn{
-    display: none
-}
 /* --------------- RWD ---------------- */
 @media only screen and (max-width:680px) {
     header{
         background-image: url(images/phone-background.jpg);
+        position: relative;
     }
     .header-text{
-        margin-top: 130%;
-        font-size:1em;
+        position: absolute;
+        bottom:20px;
+        left:20px;
+        right: 20px;
+        font-size:1rem;
+        width: calc(100% - 40px);
+    }
+    .header-buttons{
+        flex-wrap: wrap;
+    }
+    .header-buttons a{
+        width: 100%;
+        margin:15px 0 0 0;
+    }
+    .header-buttons > div:not(:last-child), .header-buttons > a:not(:last-child){
+        margin-right: 0;
+    }
+    .header-text h1{
+        font-size: 3rem;
+        line-height: 50px;
+    }
+    .header-text p{
+        font-size: 1em;
     }
     nav .burgerbtn{
         display: block;
@@ -336,7 +373,7 @@ form .btn-filled{
         margin:25px;
     }
     h2.subtitle{
-        font-size:2em;
+        font-size:2rem;
     }
     .about-col-1, .about-col-2{
         flex-basis: 100%;
@@ -354,7 +391,28 @@ form .btn-filled{
     .contact-left, .contact-right{
         flex-basis: 100%;
     }
+    .contact-left a{
+        font-size:0.8em;
+    }
     .copyright{
         font-size:0.6em;
     }
+    .tab-links:not(:last-child){
+        margin-right: 30px;
+    }
+    .tab-links:last-child{
+        margin-right: 0px;
+    }
+}
+#msg{
+    color:var(--white);
+    margin-top:-40px;
+    display: block;
+    font-size:0.8em;
+}
+#msg.successfull{
+    color:#2aaa45;
+}
+#msg.error{
+    color:#cc2a24;
 }
