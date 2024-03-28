@@ -38,7 +38,9 @@ btnBurger.addEventListener('click',()=>{
 navMenuItems.forEach((element) =>{
     element.addEventListener('click',()=>{
         navMenu.style.right = "-200px";
+        btnBurger.classList.remove('active-menu');
     })
+    
 })
 
 
@@ -51,7 +53,6 @@ const variables = document.querySelectorAll('form[name="submit-to-google-sheet"]
 
 form.addEventListener('submit', e => {
     e.preventDefault();
-
     // Check if all fields are filled
     let allFieldsFilled = true;
     variables.forEach(variable => {
@@ -81,4 +82,3 @@ form.addEventListener('submit', e => {
             msg.innerHTML = "An error occurred while sending the message!";
         });
 });
-
