@@ -3,6 +3,8 @@
     padding:0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--background);
 }
 html{
     scroll-behavior:smooth;
@@ -15,10 +17,11 @@ html{
     --background-sec:#262626;
     --white:#fff;
 
+    --grid-width:1920px;
+
     --btn-radius:6px;
     --btn-menu-h:3px;
     --burger-rotate:43deg;
-
 }
 body{
     background-color:var(--background);
@@ -41,12 +44,22 @@ body{
     flex-wrap: wrap;
 }
 .os-grid{
-    max-width: 1920px;
+    max-width: var(--grid-width);
     margin: 0 auto;
 }
 a{
     text-decoration: none;
     color:var(--white)
+}
+.container{
+    padding:10px 5%;
+}
+.line{
+    height: 2px;
+    background-color: var(--primary);
+    width: 10%;
+    display: block;
+    margin:20px auto;
 }
 /* BUTTONS */
 .btn{
@@ -62,7 +75,6 @@ a{
     font-size:1rem;
     text-align: center;
 }
-
 .btn-empty:hover{
     background: var(--primary);
 }
@@ -72,12 +84,12 @@ a{
 .btn-filled:hover{
     background: transparent;
 }
-
 .burgerbtn{
     height: 20px;
     width: 26px;
     position: relative;
     cursor: pointer;
+    z-index: 2;
 }
 .burgerbtn span{
     position: absolute;
@@ -86,7 +98,6 @@ a{
     height: 3px;
     background: var(--white);
     transition:all 0.2s ease-out;
-    z-index: 2;
 }
 .burgerbtn span:nth-child(1){
     transform-origin: top left;
@@ -99,7 +110,6 @@ a{
     transform-origin: left bottom;
     bottom:0;
 }
-
 .burgerbtn.active-menu span:nth-child(1){
     rotate:var(--burger-rotate);
 }
@@ -112,7 +122,6 @@ a{
 .burgerbtn{
     display: none;
 }
-
 /* -------HEADER SECTION ------- */
 header{
     width: 100%;
@@ -123,11 +132,35 @@ header{
     background-position: center;
     background-attachment: fixed;
 }
-.container{
-    padding:10px 5%;
-}
 header .logo{
     width: 180px;
+}
+header .developer{
+    font-size: 2rem;
+    font-weight: 600;
+    color:transparent;
+    position: relative;
+    overflow: hidden;
+}
+header .developer::before{
+    content: 'Frontend Developer';
+    position: absolute;
+    color:var(--primary);
+    left:-350px;
+    top:0;
+    -webkit-text-stroke: 1px var(--background);
+    text-stroke: 1px var(--background);
+    width: 100%;
+    height: 100%;
+    animation: moving 0.5s 0.2s  linear forwards;
+}
+@keyframes moving {
+    0%{
+        left: -330px;
+    }
+    100%{
+        left: 0;
+    }
 }
 /* ---navigation------- */
 #navmenu{
@@ -158,9 +191,11 @@ header .logo{
     width: 100%;
 }
 .header-text{
-    margin-top:15%;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
     font-size:1em;
-    width: 40%;
+    width: 50%;
 }
 .header-text h1{
     font-size: 5rem;
@@ -193,16 +228,17 @@ header .logo{
     overflow: hidden;
 }
 .about-col-1 img{
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     border-radius: 50%;
+    float: right;
 }
 .about-col-1 .circle-spin{
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 60%;
     transform: translate(-50%,-50%);
-    width: 100%;
+    width: 80%;
     height: 100%;
     border-radius: 50%;
     border-top: .2rem solid transparent;
@@ -237,6 +273,9 @@ h2.subtitle{
     cursor: pointer;
     position: relative;
 }
+.tab-links:hover::after{
+    width: 50%;
+}
 .tab-links:last-child{
     margin-right: 0px;
 }
@@ -267,6 +306,214 @@ h2.subtitle{
 .tab-contents.active-tab{
     display: block;
 }
+/* ---------- SERVICES ------------ */
+#services{
+    width: 100%;
+    position: relative;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 5px 0px;
+}
+.services-bg{
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    background-image: url(images/skills-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(0.9);
+    opacity: 0.1;
+}
+#services .column{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+#services .column p{
+    font-size: 0.75em;
+    max-width: 65%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom:20px;
+}
+#services h2{
+    font-size:1.5em;
+    display: inline-block;
+    padding-top: 40px;
+    text-transform: uppercase;
+    position: relative;
+    white-space: nowrap;
+    z-index: 1;
+}
+#services h2::before, #services h2::after{
+    position: absolute;
+    content: 'Check out some of my skills';
+    display: inline-block;
+    text-transform: uppercase;
+    scale: 2.5;
+    color: transparent !important;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+#services h2::before{
+    z-index: -1;
+    color: var(--background-sec) !important;
+    line-height: unset;
+    opacity: 0.5;
+}
+#services h2::after{
+    -webkit-text-stroke: 1px var(--white);
+    opacity: 0.25;
+    left: 0;
+    z-index: -2;
+    height: unset;
+    width: unset;
+    background-color: unset;
+    bottom: unset;
+}
+.services-items{
+    margin-top:30px;
+    padding-bottom:20px;
+}
+.services-item{
+    flex-basis: 25%;
+}
+.services-item h3{
+    font-size:1em;
+    margin:20px 0 10px 0;
+    text-transform: uppercase;
+}
+.services-item p{
+    line-height: 2;
+}
+.services-item .item-img{
+    background-color: var(--primary);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.services-item .item-img img{
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+    transition:rotate 0.4s ease-in-out ;
+}
+.services-item .item-img:hover img{
+    rotate: 360deg;
+}
+/* ---------- HOBBY ------------ */
+#hobby{
+    margin:80px 0 ;
+}
+.hobby-left{
+    flex-basis: 45%;
+    padding-right: 80px;
+}
+.hobby-right{
+    flex-basis: 45%;
+}
+.hobby-left p{
+    font-size:0.7em;
+    margin-bottom:15px;
+    text-align: justify;
+}
+.hobby-left h2.subtitle{
+    font-size:1rem;
+    color:var(--primary);
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+.hobby-left h2 span{
+    color:var(--white);
+    font-size:2em;
+    letter-spacing: 0px;
+}
+.hobby-left .line{
+    display: inline-block;
+    width: 40%;
+}
+.hobby-right img{
+    max-width: 500px;
+}
+.hobby-left .arrow img{
+    width: 100%;
+    height: 80px;
+}
+.hobby-left .arrows{
+    margin-left:-30px;
+}
+.hobby-left .arrows > .arrow{
+    margin-right: -60px;
+}
+.hobby-left .arrow > img:first-child{
+    margin-right: -70px;
+}
+.hobby-left .arrow:nth-child(1){
+    opacity: 0.2;
+    animation: arrowmove 3s 0.2s infinite;
+}
+.hobby-left .arrow:nth-child(2){
+    opacity: 0.4;
+    animation: arrowmove 3s 0.4s infinite;
+}
+.hobby-left .arrow:nth-child(3){
+    opacity: 0.6;
+    animation: arrowmove 3s 0.6s infinite;
+}
+.hobby-left .arrow:nth-child(4){
+    opacity: 0.8;
+    animation: arrowmove 3s 0.8s infinite;
+}
+.hobby-left .arrow:nth-child(5){
+    opacity: 1;
+    animation: arrowmove 3s 1s infinite;
+}
+@keyframes arrowmove {
+    50%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+/* ---------- PORTFOLIO ------------ */
+#portfolio{
+    height: 200px;
+    position: relative;
+}
+.portfolio-left-bg,.portfolio-right-bg{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    z-index: -1;
+}
+.portfolio-left-bg{
+    background-color: var(--background-sec);
+    top:0;
+    left:0;
+}
+.portfolio-right-bg{
+    background-color: var(--primary);
+    top:0;
+    right:0;
+}
+#portfolio .container{
+    position: relative;
+}
+.portfolio-left{
+    flex-basis: 45%;
+}
+.portfolio-right{
+    flex-basis: 45%;
+}
+.portfolio-right p{
+    color:var(--background-sec);
+}
+
+
+
+
 
 /* ------------ CONTACT ------------ */
 .contact-left{
@@ -274,6 +521,15 @@ h2.subtitle{
 }
 .contact-right{
     flex-basis: 60%;
+}
+.contact-left .links a{
+    transition:color 0.1s ease-in;
+}
+.contact-left .links a:hover{
+    color:var(--primary)
+}
+.contact-left .links a:hover img{
+    transform: translateY(-5px);
 }
 .contact-left p{
     margin-top:20px;
@@ -295,7 +551,6 @@ h2.subtitle{
 .contact-left .social-icons{
     margin-top:20px;
 }
-
 .contact-right form{
     width: 100%;
 }
@@ -325,35 +580,38 @@ form .btn-filled{
 }
 
 /* --------------- RWD ---------------- */
-@media only screen and (max-width:680px) {
+@media only screen and (min-width:1400px){
     header{
-        background-image: url(images/phone-background.jpg);
+        background-size: contain;
         position: relative;
+        z-index: 2;
     }
-    .header-text{
+    .header-bg{
         position: absolute;
-        bottom:20px;
-        left:20px;
-        right: 20px;
-        font-size:1rem;
-        width: calc(100% - 40px);
-    }
-    .header-buttons{
-        flex-wrap: wrap;
-    }
-    .header-buttons a{
+        z-index: -2;
+        top:0;
+        left:0;
         width: 100%;
-        margin:15px 0 0 0;
+        height: 100vh;
+        background:var(--background);
+        background-image: url(images/background-behind.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
     }
-    .header-buttons > div:not(:last-child), .header-buttons > a:not(:last-child){
-        margin-right: 0;
+}
+
+@media only screen and (max-width:1024px){
+    .header-text{
+        width: 60%;
     }
-    .header-text h1{
-        font-size: 3rem;
-        line-height: 50px;
+    .about-col-1 img{
+        max-width: 100%;
     }
-    .header-text p{
-        font-size: 1em;
+    .about-col-1 .circle-spin{
+        left:50%;
+        width: 100%;
     }
     nav .burgerbtn{
         display: block;
@@ -372,6 +630,68 @@ form .btn-filled{
         display: block;
         margin:25px;
     }
+    .services-item{
+        flex-basis: 50%;
+    }
+    .hobby-left{
+        padding-right: 0;
+        order:2;
+    }
+    .hobby-right{
+        order:1;
+        padding-bottom:20px;
+    }
+    .hobby-left,.hobby-right{
+        flex-basis: 100%;
+    }
+    .hobby-right img{
+        max-width: unset;
+        width: 100%;
+        max-height: 450px;
+    }
+    #hobby{
+        margin:40px 0 ;
+    }
+}
+@media only screen and (max-width:680px) {
+    .line{
+        width: 50%;
+    }
+    header{
+        background-color:var(--background);
+        background-image: url(images/phone-background.jpg);
+        position: relative;
+    }
+    .header-text{
+        position: absolute;
+        bottom:20px;
+        left:20px;
+        right: 20px;
+        font-size:1rem;
+        width: calc(100% - 40px);
+        transform: none;
+        top:unset;
+    }
+    .header-text p.developer{
+        font-size:1.5em;
+    }
+    .header-buttons{
+        flex-wrap: wrap;
+    }
+    .header-buttons a{
+        width: 100%;
+        margin:15px 0 0 0;
+    }
+    .header-buttons > div:not(:last-child), .header-buttons > a:not(:last-child){
+        margin-right: 0;
+    }
+    .header-text h1{
+        font-size: 3rem;
+        line-height: 50px;
+    }
+    .header-text p{
+        font-size: 1em;
+    }
     h2.subtitle{
         font-size:2rem;
     }
@@ -387,7 +707,6 @@ form .btn-filled{
     .about-col-2{
         font-size:0.8em;
     }
-
     .contact-left, .contact-right{
         flex-basis: 100%;
     }
@@ -402,6 +721,19 @@ form .btn-filled{
     }
     .tab-links:last-child{
         margin-right: 0px;
+    }
+    .about-col-1 .img-content{
+        display: flex;
+        justify-content: center;
+    }
+    .about-col-1 .circle-spin{
+        left:50%;
+    }
+    .services-item{
+        flex-basis: 100%;
+    }
+    #services h2{
+        font-size:0.85em;
     }
 }
 #msg{
