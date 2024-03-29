@@ -478,23 +478,23 @@ h2.subtitle{
     }
 }
 /* ---------- PORTFOLIO ------------ */
-#portfolio{
-    height: 200px;
+#portfolio{ 
     position: relative;
 }
 .portfolio-left-bg,.portfolio-right-bg{
     position: absolute;
     height: 100%;
-    width: 50%;
     z-index: -1;
 }
 .portfolio-left-bg{
     background-color: var(--background-sec);
+    width: 40%;
     top:0;
     left:0;
 }
 .portfolio-right-bg{
     background-color: var(--primary);
+    width: 60%;
     top:0;
     right:0;
 }
@@ -510,9 +510,42 @@ h2.subtitle{
 .portfolio-right p{
     color:var(--background-sec);
 }
+.portfolio-left .items{
+    gap:5%;
+    flex-wrap: wrap;
+}
+.portfolio-left .item{
+    padding:5px;
+    position: relative;
+    background-color: var(--white);
+    flex-basis: 45%;
+}
+.portfolio-left .item-img img{
+    max-width: 100%;
+    background-size: cover;
+}
+.portfolio-left .item-desc{
+    color:var(--background-sec);
+}
+.portfolio-left .item-icon{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary);
+}
+.portfolio-left .item-icon img{
+    width: 100%;
+    height: auto;
+}
+.portfolio-left .item-desc h3{
+    margin:20px 0;
+}
+.portfolio-left .item-desc p{
 
-
-
+}
 
 
 /* ------------ CONTACT ------------ */
