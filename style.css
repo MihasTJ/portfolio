@@ -16,6 +16,7 @@ html{
     --background:#080808;   
     --background-sec:#262626;
     --white:#fff;
+    --contrast:#253169;
 
     --grid-width:1920px;
 
@@ -311,6 +312,8 @@ h2.subtitle{
     width: 100%;
     position: relative;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 5px 0px;
+    padding:30px 0;
+    overflow: hidden;
 }
 .services-bg{
     position: absolute;
@@ -327,7 +330,6 @@ h2.subtitle{
 #services .column{
     text-align: center;
     position: relative;
-    overflow: hidden;
 }
 #services .column p{
     font-size: 0.75em;
@@ -478,43 +480,248 @@ h2.subtitle{
     }
 }
 /* ---------- PORTFOLIO ------------ */
-#portfolio{
-    height: 200px;
+#portfolio{ 
     position: relative;
+    margin-top: 3em;
+    margin-bottom: 4em;
 }
 .portfolio-left-bg,.portfolio-right-bg{
     position: absolute;
     height: 100%;
-    width: 50%;
     z-index: -1;
 }
 .portfolio-left-bg{
     background-color: var(--background-sec);
+    width: 55%;
     top:0;
     left:0;
+    margin-top:-3em;
+}
+.portfolio-left-bg::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-sec);
+    bottom:-2em;
+    left:0;
+    bottom:-5em;
+
 }
 .portfolio-right-bg{
     background-color: var(--primary);
+    width: 55%;
     top:0;
     right:0;
+    overflow: hidden;
 }
-#portfolio .container{
-    position: relative;
+.portfolio-right-bg .shapes svg{
+    position: absolute;
 }
+.portfolio-right-bg .shapes svg:nth-child(1){
+    bottom:20px;
+    left:900px;
+}
+.portfolio-right-bg .shapes svg:nth-child(2){
+    bottom:50px;
+    left:700px;
+}
+.portfolio-right-bg .shapes svg:nth-child(3){
+    left:-70px;
+    top:185px;
+}
+.portfolio-right-bg .shapes svg:nth-child(4){
+    left:380px;
+    top:415px;
+}
+.portfolio-right-bg .shapes svg:nth-child(5){
+    bottom:120px;
+    left:815px;
+}
+.portfolio-right-bg .shapes svg:nth-child(6){
+    bottom:170px;
+    left:790px;
+}
+.portfolio-right-bg .shapes svg:nth-child(7){
+    bottom:300px;
+    left:880px;
+}
+.portfolio-right-bg .shapes svg:nth-child(8){
+    bottom:270px;
+    left:850px;
+}
+.portfolio-right-bg .shapes svg:nth-child(9){
+    bottom:270px;
+    left:950px;
+}
+.portfolio-right-bg .shapes svg:nth-child(10){
+    bottom:290px;
+    left:1050px;
+}
+.portfolio-right-bg .shapes svg:nth-child(11){
+    bottom:200px;
+    left:550px;
+}
+.portfolio-right-bg .shapes svg:nth-child(12){
+    bottom:400px;
+    left:550px;
+}
+.portfolio-right-bg .shapes svg:nth-child(13){
+    top:250px;
+    left:810px;
+}
+.portfolio-right-bg .shapes svg:nth-child(14){
+    top:150px;
+    left:800px;
+}
+.portfolio-right-bg .shapes svg:nth-child(15){
+    top:190px;
+    left:750px;
+}
+.portfolio-right-bg .shapes svg:nth-child(16){
+    top:330px;
+    left:880px;
+}
+.portfolio-right-bg .shapes svg:nth-child(17){
+    top:100px;
+    left:960px;
+}
+.portfolio-right-bg .shapes svg:nth-child(18){
+    top:100px;
+    left:1000px;
+}
+.portfolio-right-bg .shapes svg:nth-child(19){
+    top:100px;
+    left:1040px;
+}
+.portfolio-right-bg .shapes svg:nth-child(20){
+    top:160px;
+    left:900px;
+}
+.portfolio-right-bg .shapes svg:nth-child(21){
+    top:175px;
+    left:895px;
+}
+.portfolio-right-bg .shapes svg:nth-child(22){
+    top:190px;
+    left:890px;
+}
+.portfolio-right-bg .shapes svg:nth-child(23){
+    top:120px;
+    left:70px;
+}
+.portfolio-right-bg .shapes svg:nth-child(24){
+    top:80px;
+    left:280px;
+}
+
 .portfolio-left{
     flex-basis: 45%;
+    margin-left:5%;
 }
 .portfolio-right{
     flex-basis: 45%;
 }
-.portfolio-right p{
+.portfolio-left .cards{
+    flex-wrap: wrap;
+}
+.portfolio-left .card{
+    padding:5px;
+    position: relative;
+    background-color: var(--white);
+    flex-basis: calc(50% - 1%);
+    margin-bottom:2%;
+}
+.portfolio-left .card-img img{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+}
+.portfolio-left .card-desc{
     color:var(--background-sec);
+    height: 200px;
+    text-align: center;
+}
+.portfolio-left .card-icon{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+}
+.portfolio-left .card-icon img{
+    width: 70%;
+    height: auto;
+    transform: rotate(-45deg);
+}
+.portfolio-left .card-desc h3{
+    padding:50px 0;
+    font-size:1em;
+    font-weight: 800;
+}
+.portfolio-left .card-desc a{
+    color:black;
+    font-size:0.85em;
+    font-weight: 700;
+    opacity: 0.5;
 }
 
-
-
-
-
+.portfolio-right h2{
+    font-size:4em;
+}
+.portfolio-right p{
+    color:var(--contrast);
+    width: 70%;
+    margin-bottom:1em;
+}
+.portfolio-right .line{
+    width: 100%;
+}
+.portfolio-right .stack ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top:1px solid var(--background-sec);
+    width: 60%;
+    list-style-type: none;
+    padding:5px 0;
+}
+.portfolio-right .stack ul li:last-child{
+    border-bottom:1px solid var(--background-sec);
+}
+.portfolio-right .stack img{
+    width: 35px;
+    height: auto;
+}
+.portfolio-right .stack-left{
+    gap:10px;
+}
+.portfolio-right .stack span{
+    font-size:3rem;
+    font-weight: 600;
+    color:transparent;
+    -webkit-text-stroke: 1px var(--white);
+    text-stroke: 1px var(--white);
+    line-height: 0.8;
+    letter-spacing: -2px;
+    padding-top: 5px;
+    min-width: 70px;
+    text-align: center;
+}
+.portfolio-right .chart{
+    margin-top:2em;
+    align-items: flex-end;
+}
+.portfolio-right .chart img{
+    width: 80px;
+    height: 80px;
+}
+.portfolio-right .chart p{
+    padding-left:1em;
+    margin:0;
+}
 /* ------------ CONTACT ------------ */
 .contact-left{
     flex-basis: 35%;
@@ -600,6 +807,7 @@ form .btn-filled{
         background-position: center;
         background-attachment: fixed;
     }
+
 }
 
 @media only screen and (max-width:1024px){
@@ -720,7 +928,7 @@ form .btn-filled{
         margin-right: 30px;
     }
     .tab-links:last-child{
-        margin-right: 0px;
+        margin-right: 0fpx;
     }
     .about-col-1 .img-content{
         display: flex;
