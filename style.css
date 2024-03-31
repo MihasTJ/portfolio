@@ -866,7 +866,6 @@ form .btn-filled{
         width: 50%;
     }
     header{
-        background-color:var(--background);
         background-image: url(images/phone-background.jpg);
         position: relative;
     }
