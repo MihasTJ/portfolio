@@ -389,11 +389,15 @@ h2.subtitle{
     line-height: 2;
 }
 .services-item .item-img{
-    background-color: var(--primary);
+    outline: 6px dotted var(--primary);
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin: 0 auto;
+    transition: background 0.4s ease-in;
+}
+.services-item .item-img:hover{
+    background-color: var(--primary);
 }
 .services-item .item-img img{
     width: 50px;
