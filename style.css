@@ -41,6 +41,9 @@ body{
 .flex.jc-sb{
     justify-content: space-between;
 }
+.flex.jc-e{
+    justify-content: end;
+}
 .flex.wrap{
     flex-wrap: wrap;
 }
@@ -618,7 +621,6 @@ h2.subtitle{
     top:80px;
     left:280px;
 }
-
 .portfolio-left{
     flex-basis: 45%;
     margin-left:5%;
@@ -626,15 +628,16 @@ h2.subtitle{
 .portfolio-right{
     flex-basis: 45%;
 }
-.portfolio-left .cards{
-    flex-wrap: wrap;
-}
 .portfolio-left .card{
     padding:5px;
     position: relative;
     background-color: var(--white);
     flex-basis: calc(50% - 1%);
     margin-bottom:2%;
+    max-width: 350px;
+}
+.portfolio-left .card:nth-child(even){
+    margin-left:2%;
 }
 .portfolio-left .card-img img{
     width: 100%;
@@ -651,12 +654,11 @@ h2.subtitle{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%) rotate(45deg);
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary);
+    width: 45px;
+    height: 45px;
 }
 .portfolio-left .card-icon img{
-    width: 70%;
+    width: 65%;
     height: auto;
     transform: rotate(-45deg);
 }
@@ -671,7 +673,18 @@ h2.subtitle{
     font-weight: 700;
     opacity: 0.5;
 }
-
+.--primary{
+    background-color: var(--primary);
+}
+.--purple{
+    background-color: rgb(175,60,130);
+}
+.--blue{
+    background-color: rgb(45,140,232);
+}
+.--green{
+    background-color: rgb(29,162,104);
+}
 .portfolio-right h2{
     font-size:4em;
 }
@@ -715,7 +728,7 @@ h2.subtitle{
     text-align: center;
 }
 .portfolio-right .chart{
-    margin-top:2em;
+    margin:2em 0;
     align-items: flex-end;
 }
 .portfolio-right .chart img{
@@ -864,6 +877,58 @@ form .btn-filled{
     #hobby{
         margin:40px 0 ;
     }
+    .portfolio-left,.portfolio-right{
+        flex-basis: 100%;
+    }
+    .portfolio-left .card{
+        flex-basis: calc(50% - 1%);
+    }
+    .portfolio-right{
+        order:1;
+    }
+    .portfolio-left{
+        order:2;
+        margin:0 8%;
+    }
+    .portfolio-right-bg{
+        width: 100%;
+    }
+    .portfolio-right .stack ul li,.portfolio-right p{
+        width: 100%;
+    }
+    .portfolio-left .cards{
+        background-color: var(--background-sec);
+        padding: 5% 5%;
+        margin: 0 -16%;
+        justify-content: center;
+    }
+    .portfolio-right-bg{
+        height: 50%;
+    }
+    .portfolio-left-bg{
+        display: none;
+    }
+    /* SVG  portfolio*/
+    .portfolio-right-bg .shapes svg:nth-child(1){
+        bottom: 42px;
+        left: 800px;
+    }
+    .portfolio-right-bg .shapes svg:nth-child(6){
+        bottom: 150px;
+        left: 300px;
+    }
+    .portfolio-right-bg .shapes svg:nth-child(7){
+        bottom: 300px;
+        left: -58px;
+    }
+    .portfolio-right-bg .shapes svg:nth-child(8){
+        left: 250px;
+    }
+    .portfolio-right-bg .shapes svg:nth-child(15){
+        left:250px;
+        opacity: 0.3;
+    }
+    /* END OF SVG */
 }
 @media only screen and (max-width:680px) {
     .line{
@@ -945,6 +1010,24 @@ form .btn-filled{
     }
     #services h2{
         font-size:0.85em;
+    }
+    .portfolio-left .card{
+        flex-basis: 100%;
+    }
+    .portfolio-right h2{
+        font-size:3rem;
+    }
+    .portfolio-right p{
+        font-size:1em;
+    }
+    .portfolio-right-bg{
+        height: 39%;
+    }
+    .portfolio-left .cards{
+        justify-content: center;
+    }
+    .portfolio-left .card:nth-child(even){
+        margin-left:0;
     }
 }
 #msg{
