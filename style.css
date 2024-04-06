@@ -392,7 +392,7 @@ h2.subtitle{
     line-height: 2;
 }
 .services-item .item-img{
-    outline: 6px dotted var(--primary);
+    outline: 6px dashed var(--primary);
     width: 80px;
     height: 80px;
     border-radius: 50%;
