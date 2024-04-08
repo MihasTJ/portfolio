@@ -16,6 +16,7 @@ html{
     --background:#080808;   
     --background-sec:#262626;
     --white:#fff;
+    --black:#000;
     --contrast:#253169;
 
     --grid-width:1920px;
@@ -130,7 +131,7 @@ a{
 header{
     width: 100%;
     height: 100vh;
-    background-image:url(images/background.jpg);
+    background-image:url(images/background.webp);
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -199,7 +200,7 @@ header .developer::before{
     top:50%;
     transform: translateY(-50%);
     font-size:1em;
-    width: 50%;
+    width: 35%;
 }
 .header-text h1{
     font-size: 5rem;
@@ -323,7 +324,7 @@ h2.subtitle{
     z-index: 0;
     inset: 0;
     width: 100%;
-    background-image: url(images/skills-background.jpg);
+    background-image: url(images/skills-background.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -517,14 +518,17 @@ h2.subtitle{
 .portfolio-left-bg .shapes-container {
     overflow: hidden;
     position: relative;
-    width: 100%;
     height: calc(100% + 10%);
 }
 .portfolio-left-bg .shapes-container .mover{
-    width: 100%;
-    height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 124%;
+    height: 110%;
     margin-top: -5%;
     margin-left: -5%;
+    opacity: 0.1;
+    z-index: 1;
 }
 .portfolio-left-bg .shapes, .portfolio-left-bg .shapes2{
     position: absolute;
@@ -535,12 +539,30 @@ h2.subtitle{
     margin:-75px;
 }
 .portfolio-left-bg .shapes span, .portfolio-left-bg .shapes2 span{
-    border:2px solid var(--white);
-    border-radius: 50px;
+    border:1px solid var(--white);
+    border-radius: 60px;
     width: 150px;
     height: 150px;
-    opacity: 0.5;
+    opacity: 1;
     position: relative;
+}
+.portfolio-left-bg .shapes-container span::before,.portfolio-left-bg .shapes-container span::after{
+    content: "";
+    position: absolute;
+    width: 6%;
+    height: 6%;
+    background: var(--white);
+    border-radius: 50%;
+}
+.portfolio-left-bg .shapes-container span::before{
+    left: 50%;
+    transform: translateX(-50%);
+    top: -3.5%;
+}
+.portfolio-left-bg .shapes-container span::after{
+    left: -3.5%;
+    transform: translateY(-50%);
+    top: 50%;
 }
 .portfolio-right-bg{
     background-color: var(--primary);
@@ -666,6 +688,36 @@ h2.subtitle{
 .portfolio-left .card:nth-child(even){
     margin-left:2%;
 }
+.portfolio-left .card a:hover .duty{
+    opacity: 1;
+}
+.portfolio-left .card .duty{
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    top:0;
+    left:0;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+    padding:10px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary);
+    background: linear-gradient(rgba(0,0,0,0.6), var(--primary));
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+}
+.portfolio-left .card .duty h3{
+    margin-bottom:0.2em;
+    text-align: center;
+}
+.portfolio-left .card .duty li{
+    list-style-type: none;
+    position: relative;
+    text-align: center;
+    font-size:0.7em;
+}
 .portfolio-left .card-img img{
     width: 100%;
     height: 200px;
@@ -691,14 +743,15 @@ h2.subtitle{
 }
 .portfolio-left .card-desc h3{
     padding:50px 0;
+    min-height: 150px;
     font-size:1em;
     font-weight: 800;
 }
-.portfolio-left .card-desc a{
+.portfolio-left .card-desc p{
     color:black;
     font-size:0.85em;
-    font-weight: 700;
-    opacity: 0.5;
+    font-weight: 600;
+    opacity: 0.6;
 }
 .--primary{
     background-color: var(--primary);
@@ -845,7 +898,7 @@ form .btn-filled{
         width: 100%;
         height: 100vh;
         background:var(--background);
-        background-image: url(images/background-behind.jpg);
+        background-image: url(images/background-behind.webp);
         background-size:cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -904,6 +957,9 @@ form .btn-filled{
     #hobby{
         margin:40px 0 ;
     }
+    #portfolio{
+        overflow: hidden;
+    }
     .portfolio-left,.portfolio-right{
         flex-basis: 100%;
     }
@@ -917,25 +973,18 @@ form .btn-filled{
         order:2;
         margin:0 8%;
     }
-    .portfolio-right-bg{
+    .portfolio-right-bg,.portfolio-left-bg,.portfolio-right .stack ul li,.portfolio-right p{
         width: 100%;
-    }
-    .portfolio-right .stack ul li,.portfolio-right p{
-        width: 100%;
-    }
-    .portfolio-left .cards{
-        background-color: var(--background-sec);
-        padding: 5% 5%;
-        margin: 0 -16%;
-        justify-content: center;
     }
     .portfolio-right-bg{
         height: 50%;
     }
     .portfolio-left-bg{
-        display: none;
+        top: 30%;
     }
-    
+    .portfolio-left .cards{
+        margin-top:3em;
+    }
     /* SVG  portfolio*/
     .portfolio-right-bg .shapes svg:nth-child(1){
         bottom: 42px;
@@ -963,7 +1012,7 @@ form .btn-filled{
         width: 50%;
     }
     header{
-        background-image: url(images/phone-background.jpg);
+        background-image: url(images/phone-background.webp);
         position: relative;
     }
     .header-text{
