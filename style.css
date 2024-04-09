@@ -165,7 +165,7 @@ a{
 header{
     width: 100%;
     height: 100vh;
-    background-image:url(images/background.webp);
+    /* background-image:url(images/background.webp); */
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1336,7 +1336,13 @@ form .btn-filled{
             flex-basis: 100%;
     }
     #services h2{
-        font-size:0.85em;
+        font-size:0.9em;
+    }
+    #services .column p{
+        font-size:0.65em;
+    }
+    .services-item h3{
+        font-size: 0.8em;
     }
     .portfolio-left .card{
         -ms-flex-preferred-size: 75%;
