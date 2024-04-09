@@ -528,6 +528,7 @@ h2.subtitle{
     margin:80px 0 ;
 }
 .hobby-left{
+    overflow: hidden;
     -ms-flex-preferred-size: 45%;
         flex-basis: 45%;
     padding-right: 80px;
