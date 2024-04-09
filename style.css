@@ -526,9 +526,9 @@ h2.subtitle{
 /* ---------- HOBBY ------------ */
 #hobby{
     margin:80px 0 ;
+    overflow: hidden;
 }
 .hobby-left{
-    overflow: hidden;
     -ms-flex-preferred-size: 45%;
         flex-basis: 45%;
     padding-right: 80px;
