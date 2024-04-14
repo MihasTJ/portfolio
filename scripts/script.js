@@ -1,3 +1,4 @@
+//getting variables
 const tabLinks = document.querySelectorAll(".tab-links");
 const tabContents = document.querySelectorAll(".tab-contents");
 const btnBurger = document.querySelector('.burgerbtn');
