@@ -195,18 +195,13 @@ header{
     background: linear-gradient(73deg, rgba(20,23,30,1) 0%, rgba(18,19,24,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#14171e",endColorstr="#121318",GradientType=1);
 }
-.shapes-back, .shapes-front{
+.shapes-back{
     position: absolute;
     width: 100%;
     height: 100%;
-}
-.shapes-back{
     z-index: -1;
 }
-.shapes-front {
-    z-index: 1;
-}
-.shapes-front svg,.shapes-back svg{
+.shapes-back svg{
     position: absolute;
     animation-name: chaos;
     animation-timing-function: ease-in-out;
@@ -215,47 +210,6 @@ header{
     opacity: 0.5;
 }
 /* -------- svg positions ------------*/
-/* front */
-.shapes-front svg:nth-child(1){
-    top:20%;
-    left:20%;
-    animation-duration: 7s;
-} 
-.shapes-front svg:nth-child(2){
-    top:0%;
-    left:0%;
-    animation-duration: 17s;
-} 
-.shapes-front svg:nth-child(3){
-    top:60%;
-    left:75%;
-    animation-duration: 22s;
-} 
-.shapes-front svg:nth-child(4){
-    top:80%;
-    left:95%;
-    animation-duration: 14s;
-} 
-.shapes-front svg:nth-child(5){
-    top:50%;
-    left:25%;
-    animation-duration: 9s;
-} 
-.shapes-front svg:nth-child(6){
-    top:45%;
-    left:11%;
-    animation-duration: 15s;
-} 
-.shapes-front svg:nth-child(7){
-    top:74%;
-    left:71%;
-    animation-duration: 11s;
-} 
-.shapes-front svg:nth-child(8){
-    top:87%;
-    left:15%;
-    animation-duration: 12s;
-} 
 /* back */
 .shapes-back svg:nth-child(1){
     top:5%;
@@ -1252,13 +1206,6 @@ form .btn-filled{
 }
 
 /* --------------- RWD ---------------- */
-/* @media only screen and (min-width:1400px){
-    .main-img{
-        background-size: contain;
-        position: relative;
-        z-index: 2;
-    }
-} */
 @media only screen and (max-width:1024px){
     .main-img{
         background-position: 160px 0px;
