@@ -14,7 +14,7 @@ html{
     --primary:#FF7400;
     --secondary:#a7a7a7;
 
-    --background:#080808;   
+    --background:#141414;  
     --background-sec:#262626;
     --white:#fff;
     --black:#000;
@@ -42,6 +42,9 @@ body{
 }
 .hidden{
     overflow: hidden;
+}
+.relative{
+    position: relative;
 }
 .flex{
     display: -webkit-box;
@@ -165,30 +168,152 @@ a{
 header{
     width: 100%;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.main-img{
+    position: absolute;
     background-image:url(images/newbackground.webp);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: right bottom;
     background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
 }
 .header-bg{
     position: absolute;
-    z-index: -2;
+    z-index: -1;
     top:0;
     left:0;
     width: 100%;
     height: 100vh;
-    /* background:var(--background);
-    background-image: url(images/background-behind.webp); */
     background: rgb(20,23,30);
     background: -moz-linear-gradient(73deg, rgba(20,23,30,1) 0%, rgba(18,19,24,1) 100%);
     background: -webkit-linear-gradient(73deg, rgba(20,23,30,1) 0%, rgba(18,19,24,1) 100%);
     background: linear-gradient(73deg, rgba(20,23,30,1) 0%, rgba(18,19,24,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#14171e",endColorstr="#121318",GradientType=1);
-    /* background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed; */
+}
+.shapes-back, .shapes-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.shapes-back{
+    z-index: -1;
+}
+.shapes-front {
+    z-index: 1;
+}
+.shapes-front svg,.shapes-back svg{
+    position: absolute;
+    animation-name: chaos;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    opacity: 0.5;
+}
+/* -------- svg positions ------------*/
+/* front */
+.shapes-front svg:nth-child(1){
+    top:20%;
+    left:20%;
+    animation-duration: 7s;
+} 
+.shapes-front svg:nth-child(2){
+    top:0%;
+    left:0%;
+    animation-duration: 17s;
+} 
+.shapes-front svg:nth-child(3){
+    top:60%;
+    left:75%;
+    animation-duration: 22s;
+} 
+.shapes-front svg:nth-child(4){
+    top:80%;
+    left:95%;
+    animation-duration: 14s;
+} 
+.shapes-front svg:nth-child(5){
+    top:50%;
+    left:25%;
+    animation-duration: 9s;
+} 
+.shapes-front svg:nth-child(6){
+    top:45%;
+    left:11%;
+    animation-duration: 15s;
+} 
+.shapes-front svg:nth-child(7){
+    top:74%;
+    left:71%;
+    animation-duration: 11s;
+} 
+.shapes-front svg:nth-child(8){
+    top:87%;
+    left:15%;
+    animation-duration: 12s;
+} 
+/* back */
+.shapes-back svg:nth-child(1){
+    top:5%;
+    left:90%;
+    animation-duration: 11s;
+} 
+.shapes-back svg:nth-child(2){
+    top:25%;
+    left:80%;
+    animation-duration: 15s;
+} 
+.shapes-back svg:nth-child(3){
+    top:5%;
+    left:37%;
+    animation-duration: 22s;
+} 
+.shapes-back svg:nth-child(4){
+    top:15%;
+    left:57%;
+    animation-duration: 24s;
+} 
+.shapes-back svg:nth-child(5){
+    top:95%;
+    left:55%;
+    animation-duration: 8s;
+} 
+.shapes-back svg:nth-child(6){
+    top:50%;
+    left:50%;
+    animation-duration: 16s;
+} 
+.shapes-back svg:nth-child(7){
+    top:34%;
+    left:55%;
+    animation-duration: 25s;
+} 
+.shapes-back svg:nth-child(8){
+    top:54%;
+    left:68%;
+    animation-duration: 14s;
+} 
+/* ----------- end od svg positions --------*/
+@keyframes chaos {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100%, 100%);
+    }
+    50% {
+        transform: translate(-50%, -50%);
+    }
+    75% {
+        transform: translate(50%, -100%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }
 header .logo{
     width: 180px;
@@ -230,6 +355,10 @@ header .developer::before{
     }
 }
 /* ---navigation------- */
+header nav{
+    position: relative;
+    z-index: 2222;
+}
 #navmenu{
     -webkit-transition:right 0.3s ease-in-out;
     -o-transition:right 0.3s ease-in-out;
@@ -269,6 +398,7 @@ header .developer::before{
             transform: translateY(-50%);
     font-size:1em;
     width: 35%;
+    z-index: 2;
 }
 .header-text h1{
     font-size: 5rem;
@@ -1122,15 +1252,15 @@ form .btn-filled{
 }
 
 /* --------------- RWD ---------------- */
-@media only screen and (min-width:1400px){
-    header{
+/* @media only screen and (min-width:1400px){
+    .main-img{
         background-size: contain;
         position: relative;
         z-index: 2;
     }
-}
+} */
 @media only screen and (max-width:1024px){
-    header{
+    .main-img{
         background-position: 160px 0px;
         background-size: cover;
     }
@@ -1252,7 +1382,7 @@ form .btn-filled{
     .line{
         width: 50%;
     }
-    header{
+    .main-img{
         background-image: url(images/phone-background.webp);
         position: relative;
         background-position: center bottom;
