@@ -1208,11 +1208,17 @@ form .btn-filled{
 /* --------------- RWD ---------------- */
 @media only screen and (max-width:1024px){
     .main-img{
-        background-position: 160px 0px;
+        background-position: 60px 0px;
         background-size: cover;
     }
     .header-text{
         width: 60%;
+        bottom:0;
+        top:unset;
+        transform: translateY(0);
+    }
+    .header-text h1{
+        max-width: 260px;
     }
     .about-col-1 img{
         max-width: 100%;
@@ -1330,9 +1336,7 @@ form .btn-filled{
         width: 50%;
     }
     .main-img{
-        background-image: url(images/phone-background.webp);
-        position: relative;
-        background-position: center bottom;
+        background-position: center;
     }
     .header-text{
         position: absolute;
@@ -1348,6 +1352,9 @@ form .btn-filled{
     }
     .header-text p.developer{
         font-size:1.5em;
+    }
+    .header-text h1{
+        max-width: 100%;
     }
     .header-buttons{
         -ms-flex-wrap: wrap;
