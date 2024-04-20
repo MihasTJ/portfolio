@@ -213,7 +213,7 @@ header{
 /* back */
 .shapes-back svg:nth-child(1){
     top:5%;
-    left:90%;
+    left:80%;
     animation-duration: 11s;
 } 
 .shapes-back svg:nth-child(2){
