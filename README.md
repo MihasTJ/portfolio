@@ -39,4 +39,4 @@ Feel free to customize this according to your preferences or specific details yo
 
 ## Application view
 
-In progress
+<img src="https://github.com/MihasTJ/portfolio/assets/113548265/64c89d2b-cf7f-4c67-bc30-847cf3ef6ce5" alt="phone" width="100%">
