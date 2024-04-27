@@ -182,6 +182,15 @@ header{
     height: 100vh;
     z-index: 0;
 }
+.main-img img {
+    width: auto;
+    height: 100%; 
+    object-fit: cover; 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    z-index: -1; 
+}
 .header-bg{
     position: absolute;
     z-index: -1;
@@ -1212,6 +1221,9 @@ form .btn-filled{
         background-position: 60px 0px;
         background-size: cover;
     }
+    .main-img img {
+        inset: 0px 60px;
+    }
     .header-text{
         width: 60%;
         bottom:0;
@@ -1338,6 +1350,10 @@ form .btn-filled{
     }
     .main-img{
         background-position: center;
+    }
+    .main-img img {
+        inset:50% 50%;
+        transform: translate(-50%,-50%);
     }
     .header-text{
         position: absolute;
