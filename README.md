@@ -38,5 +38,6 @@ Feel free to customize this according to your preferences or specific details yo
 ```git clone https://github.com/MihasTJ/portfolio.git```
 
 ## Application view
+<img src="https://github.com/MihasTJ/portfolio/assets/113548265/64c89d2b-cf7f-4c67-bc30-847cf3ef6ce5" alt="desktop" width="100%">
+<img src="https://github.com/MihasTJ/portfolio/assets/113548265/e9859999-979d-4505-b008-8fe2a82bf0fe" alt="phone" width="50%">
 
-<img src="https://github.com/MihasTJ/portfolio/assets/113548265/64c89d2b-cf7f-4c67-bc30-847cf3ef6ce5" alt="phone" width="100%">
